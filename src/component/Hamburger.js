@@ -2,6 +2,20 @@ import React, { useEffect, useRef, useState } from 'react'
 import gsap from 'gsap'
 import { Link } from 'react-router-dom'
 
+import dallas from '../assets/img/dallas.webp'
+import austin from '../assets/img/austin.webp'
+import newyork from '../assets/img/newyork.webp'
+import sanfrancisco from '../assets/img/sanfrancisco.webp'
+import hongKong from '../assets/img/hong-kong.webp'
+
+const cities = [
+    {name: "Dallas", image: dallas},
+    {name: "Austin", image: austin},
+    {name: "New York", image: newyork},
+    {name: "San Francisco", image: sanfrancisco},
+    {name: "Hong Kong", image: hongKong},
+]
+
 const Hamburger = ({state}) => {
     // Ref for animated dom nodes
     let menu = useRef(null)
@@ -81,12 +95,38 @@ const Hamburger = ({state}) => {
         })
     }
 
+    const handleCity = (node) => {
+        gsap.to(bg.current, {
+            duration: 0,
+            // background: `url(${node}) center center`,
+            background: `url(${node})`,
+        })
+        gsap.to(bg.current, {
+            duration: 0.4,
+            opacity: 1,
+            ease: "power3.inOut"
+        })
+        gsap.to(bg.current, {
+            duration: 0.4,
+            // scaleY: 2,\
+            scaleY: 1,
+            transformOrigin: "right top"
+        })
+    }
+
+    const handleCityReturn = () => {
+        gsap.to(bg.current, {
+            duration: 0.4,
+            opacity: 0,
+        })
+    }
+
     return (
         // ref={el => (menu = el)}
         <div ref={menu} className="hamburger-menu">
             <div ref={showBg} className="menu-secondary-background-color"></div>
             <div ref={showMenu} className="menu-layer">
-                <div className="menu-city-background"></div>
+                <div ref={bg} className="menu-city-background"></div>
                 <div className="container">
                     <div className="wrapper">
                         <div className="menu-links flex align-center space-between">
@@ -96,7 +136,7 @@ const Hamburger = ({state}) => {
                                         <Link ref={line1} to="/oppurtunies">Opportunity</Link>
                                     </li>
                                     <li>
-                                        <Link ref={line2} to="/solutions">Opportunity</Link>
+                                        <Link ref={line2} to="/solutions">Solutions</Link>
                                     </li>
                                     <li>
                                         <Link ref={line3} to="/contact-us">Contact us</Link>
@@ -114,11 +154,24 @@ const Hamburger = ({state}) => {
                             </div>
                             <div className="locations">
                                 Locations:
-                                <span>Dallas</span>
+                                {cities.map((city, index) => {
+                                    const {name, image} = city
+
+                                    return (
+                                        <span
+                                            key={index}
+                                            onMouseEnter={() => handleCity(image)}
+                                            onMouseOut={handleCityReturn}
+                                        >
+                                            {name}
+                                        </span>
+                                    )
+                                })}
+                                {/* <span>Dallas</span>
                                 <span>Austin</span>
                                 <span>New York</span>
                                 <span>San Francisco</span>
-                                <span>Hong Kong</span>
+                                <span>Hong Kong</span> */}
                             </div>
                         </div>
                     </div>

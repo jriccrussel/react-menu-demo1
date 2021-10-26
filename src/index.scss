@@ -129,71 +129,80 @@ header{
         height: $pct;
         width: $pct;
         opacity: 0;
+        background-size: cover;
+        background-repeat: no-repeat;
+        animation-name: backgroundEffect;
+        animation-duration: 30s;
+        animation-iteration-count: infinite;
       }
 
-      .wrapper{
-        .menu-links{
-          nav{
-            display: block;
-            ul{
-              margin: 0;
-              padding: 0;
-              li{
-                list-style: none;
-                font-size: 6rem;
-                font-weight: 700;
-                cursor: pointer;
-                height: 135px;
-                overflow: hidden;
-                position: relative;
-                width: 700px;
-
-                a{
-                  position: absolute;
-                  color: $white;
-                  text-decoration: none;
-                  &:hover{
-                    color: $black;
+      .container{
+        .wrapper{
+          .menu-links{
+            position: relative;
+            top: 200px;
+            nav{
+              display: block;
+              ul{
+                margin: 0;
+                padding: 0;
+                li{
+                  list-style: none;
+                  font-size: 6rem;
+                  font-weight: 700;
+                  cursor: pointer;
+                  height: 135px;
+                  overflow: hidden;
+                  position: relative;
+                  width: 700px;
+  
+                  a{
+                    position: absolute;
+                    color: $white;
+                    text-decoration: none;
+                    &:hover{
+                      color: $black;
+                    }
                   }
                 }
               }
             }
-          }
-
-          .info{
-            color: $white;
-            width: 300px;
-            h3{ 
-              font-size: 1.2rem;
-              margin: 8px auto;
-            }
-            p{
-              margin: $mg-auto;
-              font-size: 0.8rem;
-            }
-          }
-        }
-
-        .locations{
-          position: absolute;
-          bottom: -80px;
-          color: $white;
-          margin-top: 16px;
-          font-size: 0.8rem;
-          font-weight: 600;
-          span{
-            cursor: pointer;
-            font-weight: 400;
-            margin: 0 32px;
-            transform: 0.3s ease-in-out;
-            &:first-child{
-              margin-left: 64px;
-            }
-            &:hover{
+  
+            .info{
               color: $white;
-              background: $black;
-              padding: 8px 24px;
-              border-radius: 4px;
+              width: 300px;
+              h3{ 
+                font-size: 1.2rem;
+                margin: 8px auto;
+              }
+              p{
+                margin: $mg-auto;
+                font-size: 0.8rem;
+              }
+            }
+          }
+  
+          .locations{
+            position: absolute;
+            bottom: -80px;
+            color: $white;
+            margin-top: 16px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            span{
+              cursor: pointer;
+              font-weight: 400;
+              margin: 0 32px;
+              transform: 0.3s ease-in-out;
+              &:first-child{
+                margin-left: 64px;
+              }
+              &:hover{
+                color: $white;
+                background: $black;
+                padding: 8px 24px;
+                border-radius: 4px;
+              }
             }
           }
         }
@@ -201,3 +210,45 @@ header{
     }
   }
 }
+
+
+@keyframes backgroundEffect {
+  0%{
+    background-position: 0% 0%;
+  }  
+  25%{
+    background-position: 40% 10%;
+  } 
+  50%{
+    background-position: 0% 10%;
+  } 
+  75%{
+    background-position: 10% 40%;
+  } 
+  100%{
+    background-position: 0% 0%;
+  } 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

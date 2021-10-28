@@ -105,31 +105,31 @@ const Hamburger = ({state}) => {
     //     })
     // }
 
-    const handleCity = (node) => {
-        gsap.to(bg.current, {
-            duration: 0,
-            // background: `url(${node}) center center`,
-            background: `url(${node})`,
-        })
-        gsap.to(bg.current, {
-            duration: 0.4,
-            opacity: 1,
-            ease: "power3.inOut"
-        })
-        gsap.to(bg.current, {
-            duration: 0.4,
-            // scaleY: 2,\
-            scaleY: 1,
-            transformOrigin: "right top"
-        })
-    }
+    // const handleCity = (node) => {
+    //     gsap.to(bg.current, {
+    //         duration: 0,
+    //         // background: `url(${node}) center center`,
+    //         background: `url(${node})`,
+    //     })
+    //     gsap.to(bg.current, {
+    //         duration: 0.4,
+    //         opacity: 1,
+    //         ease: "power3.inOut"
+    //     })
+    //     gsap.to(bg.current, {
+    //         duration: 0.4,
+    //         // scaleY: 2,\
+    //         scaleY: 1,
+    //         transformOrigin: "right top"
+    //     })
+    // }
 
-    const handleCityReturn = () => {
-        gsap.to(bg.current, {
-            duration: 0.4,
-            opacity: 0,
-        })
-    }
+    // const handleCityReturn = () => {
+    //     gsap.to(bg.current, {
+    //         duration: 0.4,
+    //         opacity: 0,
+    //     })
+    // }
 
     // const handleHover = (e) => {
     //     gsap.to(e.target, {
@@ -209,8 +209,8 @@ const Hamburger = ({state}) => {
                                     return (
                                         <span
                                             key={index}
-                                            onMouseEnter={() => handleCity(image)}
-                                            onMouseOut={handleCityReturn}
+                                            onMouseEnter={() => handleCity(image, bg.current)}
+                                            onMouseOut={handleCityReturn(bg.current)}
                                         >
                                             {name}
                                         </span>

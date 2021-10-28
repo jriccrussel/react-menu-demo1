@@ -61,6 +61,32 @@ export const fadeInUp = (node) => {
 //     })
 // }
 
+export const handleCity = (node, target) => {
+    gsap.to(target, {
+        duration: 0,
+        // background: `url(${node}) center center`,
+        background: `url(${node})`,
+    })
+    gsap.to(target, {
+        duration: 0.4,
+        opacity: 1,
+        ease: "power3.inOut"
+    })
+    gsap.to(target, {
+        duration: 0.4,
+        // scaleY: 2,\
+        scaleY: 1,
+        transformOrigin: "right top"
+    })
+}
+
+export const handleCityReturn = (target) => {
+    gsap.to(target, {
+        duration: 0.4,
+        opacity: 0,
+    })
+}
+
 export const handleHover = (e) => {
     gsap.to(e.target, {
         duration: 0.3,
